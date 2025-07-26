@@ -77,7 +77,7 @@ InfraLog es un blog web profesional creado con Django, que permite a los usuario
 
 1. Clona este repositorio:
 ```
-git clone https://github.com/tu_usuario/InfraLog.git
+git clone https://github.com/w0000wie/InfraLog.git
 cd InfraLog
 ```
 
