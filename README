@@ -1,0 +1,111 @@
+InfraLog 📡✨
+
+InfraLog es un blog web profesional creado con Django, que permite a los usuarios registrarse, gestionar su perfil, publicar artículos técnicos (pages), enviar mensajes y navegar por una interfaz centrada en las telecomunicaciones. Este proyecto fue desarrollado como entrega final del curso PythonFlex de Coderhouse.
+
+---
+
+## Características principales
+
+- Registro, inicio y cierre de sesión de usuarios.
+- Vista y edición de perfil con foto, biografía y más.
+- Sistema de mensajería entre usuarios.
+- Creación, edición y eliminación de páginas (posts).
+- Vista detallada de cada publicación.
+- Página de inicio personalizada y sección “Acerca de mí”.
+- Diseño responsivo y estilizado.
+
+---
+
+## Tecnologías utilizadas
+
+- Python 3.x
+- Django 4.x
+- HTML5, CSS3
+- SQLite3
+- Font Awesome
+- Bootstrap 5 (utilizado parcialmente)
+- Visual Studio Code
+
+---
+
+## Estructura del Proyecto
+
+- Uso del patrón **MVT (Model-View-Template)**
+- App principal: `pages`
+- Apps secundarias: `accounts`, `messages_app`
+- Modelos: `Page`, `Profile`, `Message`
+- Templates reutilizables y herencia desde `base.html`
+- Archivos estáticos organizados en `static/`
+
+---
+
+## Funcionalidades destacadas
+
+- **Páginas**:
+  - Crear nuevas páginas desde `/pages/create/`
+  - Listar todas en `/pages/`
+  - Leer más con enlaces a `/pages/<id>/`
+  - Editar y eliminar solo si estás logueado.
+
+- **Mensajería**:
+  - Enviar mensajes a otros usuarios desde su perfil o inbox.
+  - Visualizar bandeja de entrada con `/messages/inbox/`
+  - Responder desde el detalle del mensaje.
+
+- **Perfil**:
+  - Acceder a tu perfil desde la barra de navegación.
+  - Editar información y cambiar avatar.
+  - Cambiar contraseña desde el perfil.
+
+---
+
+## Navegación principal
+
+- Inicio: `/`
+- Acerca de mí: `/about/`
+- Páginas: `/pages/`
+- Crear página: `/pages/create/`
+- Mensajes: `/messages/inbox/`
+- Perfil: `/accounts/profile/`
+- Login: `/accounts/login/`
+- Registro: `/accounts/signup/`
+- Logout: `/accounts/logout/`
+
+---
+
+## Cómo ejecutar el proyecto
+
+1. Clona este repositorio:
+```
+git clone https://github.com/tu_usuario/InfraLog.git
+cd InfraLog
+```
+
+2. Crea un entorno virtual e instálalo:
+```
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+```
+
+3. Instala las dependencias:
+```
+pip install -r requirements.txt
+```
+
+4. Realiza las migraciones necesarias:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+5. Inicia el servidor:
+```
+python manage.py runserver
+```
+
+---
+
+## Autor
+
+Proyecto desarrollado por **Jeorgelyz Camacaro** como entrega final del curso PythonFlex en Coderhouse.  
+InfraLog es también un prototipo de comunidad para estudiantes y profesionales apasionados por las telecomunicaciones.

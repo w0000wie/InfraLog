@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4" style="color: #1a1a55;">
+    Bandeja de entrada
+  </h2>
+
+  {% if messages %}
+  <div class="d-flex flex-column align-items-center">
+    <div style="width: 100%; max-width: 700px; display: flex; flex-direction: column; gap: 15px;">
+
+      {% for message in messages %}
+      <div style="display: flex; align-items: center; background-color: #fdf4ff; border: 1.5px solid #007bff; border-radius: 12px; padding: 15px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: background-color 0.3s;">
+        
+
+        <div style="flex-shrink: 0; width: 50px; height: 50px; background-color: #0056b3; color: white; border-radius: 50%; font-weight: bold; font-size: 20px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+          {{ message.sender.username|slice:":1"|upper }}
+        </div>
+
+        <div style="flex-grow: 1;">
+          <h5 style="margin: 0; color: #007bff;">{{ message.subject|default:"(Sin asunto)" }}</h5>
+          <p style="margin: 2px 0 8px; font-size: 14px; color: #4e4e4e;">
+            {{ message.body|truncatechars:60 }}
+          </p>
+          <small style="color: #6c6c6c;">
+            <strong>De:</strong> {{ message.sender.username }} |
+            <strong>Fecha:</strong> {{ message.created_at|date:"d M Y, H:i" }}
+          </small>
+        </div>
+
+        <!-- Botón -->
+        <div style="margin-left: 15px;">
+          <a href="{% url 'view_message' message.id %}" 
+             style="background-color: #0056b3; color: white; padding: 8px 12px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 500;"
+             onmouseover="this.style.backgroundColor='#a94ee0'" 
+             onmouseout="this.style.backgroundColor='#c57aff'">
+            Abrir
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  {% else %}
+    <p class="text-center mt-4">No tienes mensajes aún 🕊️</p>
+  {% endif %}
+</div>
+{% endblock %}

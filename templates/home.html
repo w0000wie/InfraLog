@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>Bienvenido a <span class="highlight">InfraLog</span></h1>
+    <p class="slogan">Tecnología que conecta. Conocimiento que impulsa.</p>
+    <div class="hero-buttons">
+      <a href="{% url 'about' %}" class="btn btn-primary">Conócenos</a>
+      <a href="{% url 'inbox' %}" class="btn btn-secondary">Ver mensajes</a>
+    </div>
+    <div class="hero-img">
+      <img src="{% static 'img/hero-ilustracion.png' %}" alt="Ilustración principal">
+    </div>
+  </div>
+</section>
+{% endblock %}

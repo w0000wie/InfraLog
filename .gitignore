@@ -1,0 +1,24 @@
+# Entorno virtual
+env/
+venv/
+*.pyc
+__pycache__/
+*.sqlite3
+db.sqlite3
+
+# Archivos de configuración
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+
+# Archivos de usuario
+.idea/
+.vscode/
+*.bak
+
+# Archivos de media
+/media/

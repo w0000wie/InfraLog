@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>¿Estás segura de que quieres eliminar "{{ object.title }}"?</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'page_detail' object.pk %}">Cancelar</a>
+  </form>
+{% endblock %}
+{% block extra_content %}
+  {% if user.is_authenticated %}
+    <p>Recuerda que esta acción no se puede deshacer.</p>
+  {% else %}
+    <p>Inicia sesión para eliminar esta página.</p>
+  {% endif %}
+{% endblock %}

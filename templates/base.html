@@ -1,0 +1,132 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>InfraLog</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!-- Navbar estilo SB UI Kit Pro -->
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d3e75;
+    text-decoration: none;
+  }
+
+  .navbar-menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 10px;
+    transition: color 0.2s;
+  }
+
+  .navbar-menu a:hover {
+    color: #007bff;
+  }
+
+  .navbar-actions a.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-register {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    text-decoration: none;
+  }
+
+  .btn-register:hover {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .navbar-menu {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .navbar-actions {
+      margin-top: 10px;
+    }
+  }
+</style>
+
+<!-- HTML Navbar -->
+<nav class="navbar">
+  <a href="{% url 'home' %}" class="navbar-brand">InfraLog</a>
+
+  <div class="navbar-menu">
+    <a href="{% url 'about' %}">Acerca de mí</a>
+    <a href="{% url 'page_list' %}">Bitácora</a>
+    <a href="{% url 'inbox' %}">Mensajes</a>
+    <a href="{% url 'send_message' %}">Enviar mensaje</a>
+  </div>
+
+  <div class="navbar-actions">
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile'%}" class="btn btn-primary">Perfil</a>
+      <form method="post" action="{% url 'logout' %}" style="display: inline;">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-link" style="margin-left: 10px;">Salir</button>
+</form>
+</form>
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-primary">Ingresar</a>
+       <a href="{% url 'signup' %}" class="btn-register">Registrarse</a>
+    {% endif %}
+  </div>
+</nav>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

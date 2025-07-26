@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Iniciar sesión</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Entrar</button>
+</form>
+{% endblock %}
+{% block extra_content %}
+  {% if user.is_authenticated %}
+    <p>¡Bienvenido de nuevo, {{ user.username }}!</p>
+  {% else %}
+    <p>¿No tienes una cuenta? <a href="{% url 'signup' %}">Regístrate aquí</a>.</p>
+  {% endif %}
+{% endblock %}
